@@ -27,11 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Container(
         color: CustomColors.backgroundGreen,
+        // Parallax Builder
         child: ParallaxScroll(
           controller: controller,
           physic: ClampingScrollPhysics(),
           children: <Widget>[
+            // Welcome Part.
             UrbanPlannersSubscreen(controller: controller),
+            // Registration & Login Part.
             BenefitsSubscreen(controller: controller),
           ],
           parallaxBackgroundChildren: _buildParallaxElements(),
@@ -44,6 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  // Elements for the Background.
 
   List<ParallaxElement> _buildParallaxElements() {
     return [
@@ -106,6 +111,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ];
   }
+
+  // Toggle Effect 3D / 2D.
 
   Widget _buildEffectToggle() {
     return IconButton(

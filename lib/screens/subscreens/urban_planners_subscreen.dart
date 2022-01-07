@@ -31,6 +31,9 @@ class UrbanPlannersSubscreen extends StatelessWidget {
         SizedBox(
           height: 22,
         ),
+
+        // Heading.
+
         Text(
           'Urban \nPlanners',
           textAlign: TextAlign.center,
@@ -67,6 +70,9 @@ class UrbanPlannersSubscreen extends StatelessWidget {
         SizedBox(
           height: 12,
         ),
+
+        // Button to push to the login part
+
         FlatButton(
           onPressed: () {
             controller.animateTo(1540,
@@ -93,6 +99,7 @@ class UrbanPlannersSubscreen extends StatelessWidget {
         SizedBox(
           height: 330,
         ),
+        // Extra details part
         _buildExteriorInfoSection(),
         SizedBox(
           height: 370,
@@ -100,6 +107,8 @@ class UrbanPlannersSubscreen extends StatelessWidget {
       ],
     );
   }
+
+  // Extra data and ui part number 2
 
   Widget _buildExteriorInfoSection() {
     return Align(

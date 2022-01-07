@@ -1,7 +1,6 @@
 import 'package:flash_chat/screens/subscreens/finalui.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/screens/subscreens/benefits_subscreen.dart';
-import 'package:flash_chat/screens/subscreens/urban_planners_subscreen.dart';
 import 'package:flash_chat/shared/colors.dart';
 import 'package:flash_chat/shared/consts.dart';
 import 'package:flash_chat/shared/widgets/paralax.dart';

@@ -65,19 +65,6 @@ class FinalUI extends StatelessWidget {
             height: .9,
           ),
         ),
-        // SizedBox(
-        //   height: 4,
-        // ),
-        // Text(
-        //   "$number",
-        //   textAlign: TextAlign.center,
-        //   style: GoogleFonts.nunito(
-        //     color: CustomColors.text,
-        //     fontSize: 14,
-        //     fontWeight: FontWeight.w500,
-        //     height: 1.2,
-        //   ),
-        // ),
         SizedBox(
           height: 12,
         ),

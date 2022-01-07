@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flash_chat/shared/colors.dart';
 import 'package:flash_chat/shared/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flash_chat/screens/home.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 enum MobileVerificationState {
   SHOW_MOBILE_FORM_STATE,
@@ -63,7 +59,6 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
       });
 
       if (authCredential?.user != null) {
-        //Navigator.pushNamed(context, Home(number).id);
         Navigator.push<void>(
           context,
           MaterialPageRoute<void>(
@@ -80,6 +75,8 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
           .showSnackBar(SnackBar(content: Text(e.message)));
     }
   }
+
+  // REGISTER NUMBER PART
 
   registeration(context) {
     return Container(
@@ -122,19 +119,6 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
           SizedBox(
             height: 25,
           ),
-          // Text(
-          //   'Get the most out of your buck,\nwe know the best spots.',
-          //   textAlign: TextAlign.center,
-          //   style: GoogleFonts.nunito(
-          //     color: CustomColors.text,
-          //     fontSize: 25,
-          //     fontWeight: FontWeight.w500,
-          //     height: 1.2,
-          //   ),
-          // ),
-          // SizedBox(
-          //   height: 50,
-          // ),
           Text(
             "Add your phone number.\nwe'll send you a verification code\n so we know you're real.",
             textAlign: TextAlign.center,
@@ -206,7 +190,7 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
                             number = '+91' + phoneController.text;
                             showLoading = false;
                           });
-                          //signInWithPhoneAuthCredential(phoneAuthCredential);
+                          signInWithPhoneAuthCredential(phoneAuthCredential);
                         },
                         verificationFailed: (verificationFailed) async {
                           setState(() {
@@ -247,6 +231,8 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
       ),
     );
   }
+
+  // VERIFY OTP PART.
 
   verification(context) {
     return Container(
@@ -289,19 +275,6 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
           SizedBox(
             height: 25,
           ),
-          // Text(
-          //   'Get the most out of your buck,\nwe know the best spots.',
-          //   textAlign: TextAlign.center,
-          //   style: GoogleFonts.nunito(
-          //     color: CustomColors.text,
-          //     fontSize: 25,
-          //     fontWeight: FontWeight.w500,
-          //     height: 1.2,
-          //   ),
-          // ),
-          // SizedBox(
-          //   height: 50,
-          // ),
           Text(
             "Enter your OTP code number.",
             textAlign: TextAlign.center,
@@ -315,7 +288,6 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
           SizedBox(
             height: 28,
           ),
-
           Container(
             padding: EdgeInsets.all(28),
             decoration: BoxDecoration(
@@ -343,42 +315,15 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black12),
                           borderRadius: BorderRadius.circular(10)),
-                      // prefix: Padding(
-                      //   padding: EdgeInsets.symmetric(horizontal: 8),
-                      //   child: Text(
-                      //     '(+91)',
-                      //     style: TextStyle(
-                      //       fontSize: 18,
-                      //       fontWeight: FontWeight.bold,
-                      //     ),
-                      //   ),
-                      // ),
-                      // suffixIcon: Icon(
-                      //   Icons.check_circle,
-                      //   color: CustomColors.textGreen,
-                      //   size: 32,
-                      // ),
                     ),
                   ),
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     _textFieldOTP(first: true, last: false),
-                //     _textFieldOTP(first: false, last: false),
-                //     _textFieldOTP(first: false, last: false),
-                //     _textFieldOTP(first: false, last: false),
-                //     _textFieldOTP(first: false, last: false),
-                //     _textFieldOTP(first: false, last: true),
-                //   ],
-                // ),
                 SizedBox(
                   height: 22,
                 ),
                 CustomButton(
                   text: 'Verify',
                   minWidth: 200,
-
                   onPressed: () async {
                     print(otp);
                     PhoneAuthCredential phoneAuthCredential =
@@ -388,11 +333,6 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
 
                     signInWithPhoneAuthCredential(phoneAuthCredential);
                   },
-                  // onPressed: () {
-                  //   widget.controller.animateTo(0,
-                  //       duration: Duration(milliseconds: 2300),
-                  //       curve: Curves.ease);
-                  // },
                 ),
               ],
             ),
@@ -421,7 +361,6 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
             ),
             textAlign: TextAlign.center,
           ),
-
           SizedBox(
             height: 150,
           ),
@@ -430,10 +369,13 @@ class _BenefitsSubscreenState extends State<BenefitsSubscreen> {
     );
   }
 
+  //KEY
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
+    // TOGGLE THE UI AS PER THE REQUIREMENT.
     return currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE
         ? registeration(context)
         : verification(context);

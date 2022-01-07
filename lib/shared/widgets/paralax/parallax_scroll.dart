@@ -35,6 +35,7 @@ class _ParallaxScrollState extends State<ParallaxScroll> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
+        // ignore: sdk_version_ui_as_code
         ..._buildParallaxElements(widget.parallaxBackgroundChildren),
         NotificationListener<ScrollNotification>(
           onNotification: _onScrollUpdate,
