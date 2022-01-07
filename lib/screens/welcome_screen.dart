@@ -15,6 +15,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   Animation animation;
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
 
@@ -50,25 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
               ),
             ),
-            // Row(
-            //   children: <Widget>[
-            //     Hero(
-            //       tag: 'logo',
-            //       child: Container(
-            //         child: Image.asset('images/logo.png'),
-            //         height: 60.0,
-            //       ),
-            //     ),
-            //     TypewriterAnimatedTextKit(
-            //       text: ['Global Free'],
-            //       textStyle: TextStyle(
-            //         fontSize: 50.0,
-            //         fontWeight: FontWeight.w900,
-            //       ),
-            //       speed: const Duration(milliseconds: 180),
-            //     ),
-            //   ],
-            // ),
+
             SizedBox(
               height: 100,
             ),
